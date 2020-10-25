@@ -5,8 +5,8 @@ class Dollar {
     this.amount = amount;
   }
 
-  times(amount: number) {
-    return this.amount * amount;
+  times(mult: number): Dollar {
+    return new Dollar(this.amount * mult);
   }
 }
 
