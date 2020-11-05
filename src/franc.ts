@@ -1,8 +1,7 @@
-class Franc {
-  private amount: number;
-
+import Money from "./money";
+class Franc extends Money {
   constructor(amount: number) {
-    this.amount = amount;
+    super(amount);
   }
 
   times(mult: number): Franc {

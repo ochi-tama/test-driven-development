@@ -10,6 +10,7 @@
 - [ ] null との等価性比較
 - [ ] 他のオブジェクトとの等価性比較
 - [x] 5 CHF \* 2 = 10 CHF
-- [ ] Dollar と Franc の一般化
-- [ ] equals の一般化
+- [ ] Dollar と Franc の重複
+- [x] equals の一般化
 - [ ] times の一般化
+- [ ] Dollar と Franc を比較する
