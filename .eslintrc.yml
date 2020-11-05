@@ -1,12 +1,21 @@
 env:
-  browser: true
-  es2021: true
+  es6: true
+  jest/globals: true
 extends:
-  - airbnb-base
-parser: '@typescript-eslint/parser'
+  - eslint:recommended
+  - plugin:@typescript-eslint/eslint-recommended
+  - plugin:@typescript-eslint/recommended
+  - plugin:react/recommended
+  - plugin:jest/recommended
+  - prettier
+  - prettier/@typescript-eslint
+parser: "@typescript-eslint/parser"
 parserOptions:
   ecmaVersion: 12
   sourceType: module
 plugins:
-  - '@typescript-eslint'
-rules: {}
+  - jest
+  - "@typescript-eslint"
+settings:
+  import/resolver:
+    "node": { "extensions": [".js", ".jsx", ".json", ".ts", ".tsx"] }
