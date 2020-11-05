@@ -1,8 +1,7 @@
-class Dollar {
-  private amount: number;
-
+import Money from "./money";
+class Dollar extends Money {
   constructor(amount: number) {
-    this.amount = amount;
+    super(amount);
   }
 
   times(mult: number): Dollar {
