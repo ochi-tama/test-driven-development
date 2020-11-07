@@ -27,3 +27,7 @@ test("5CHF * 2 equals to 10 CHF", () => {
   const money = new Franc(5);
   expect(money.times(2)).toStrictEqual(new Franc(10));
 });
+
+test("5CHF equals to 5 dollar", () => {
+  expect(new Dollar(10)).not.toStrictEqual(new Franc(10));
+});

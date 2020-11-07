@@ -13,4 +13,4 @@
 - [ ] Dollar と Franc の重複
 - [x] equals の一般化
 - [ ] times の一般化
-- [ ] Dollar と Franc を比較する
+- [x] Dollar と Franc を比較する
