@@ -1,10 +1,6 @@
 import Money from "./money";
 class Dollar extends Money {
-  constructor(amount: number) {
-    super(amount);
-  }
-
-  times(mult: number): Dollar {
+  times(mult: number): Money {
     return new Dollar(this.amount * mult);
   }
 }
