@@ -24,7 +24,7 @@ export class Dollar extends Money {
   }
 
   times(mult: number): Money {
-    return Money.dollar(this.amount * mult);
+    return new Money(this.amount * mult, this.currency);
   }
 }
 
@@ -34,7 +34,7 @@ export class Franc extends Money {
   }
 
   times(mult: number): Money {
-    return Money.franc(this.amount * mult);
+    return new Money(this.amount * mult, this.currency);
   }
 }
 export default Money;
