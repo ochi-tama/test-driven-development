@@ -16,25 +16,21 @@ export class Money {
   static franc(amount: number): Franc {
     return new Franc(amount, "CHF");
   }
+
+  times(mult: number): Money {
+    return new Money(this.amount * mult, this.currency);
+  }
 }
 
 export class Dollar extends Money {
   constructor(amount: number, currency: string) {
     super(amount, currency);
   }
-
-  times(mult: number): Money {
-    return new Money(this.amount * mult, this.currency);
-  }
 }
 
 export class Franc extends Money {
   constructor(amount: number, currency: string) {
     super(amount, currency);
-  }
-
-  times(mult: number): Money {
-    return new Money(this.amount * mult, this.currency);
   }
 }
 export default Money;
