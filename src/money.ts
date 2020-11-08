@@ -9,33 +9,33 @@ export class Money {
   }
 
   static dollar(amount: number): Dollar {
-    return new Dollar(amount);
+    return new Dollar(amount, "");
   }
 
   static franc(amount: number): Franc {
-    return new Franc(amount);
+    return new Franc(amount, "");
   }
 }
 
 export class Dollar extends Money {
-  constructor(amount: number) {
+  constructor(amount: number, currency: string) {
     super(amount);
     this.currency = "USD";
   }
 
   times(mult: number): Money {
-    return new Dollar(this.amount * mult);
+    return Money.dollar(this.amount * mult);
   }
 }
 
 export class Franc extends Money {
-  constructor(amount: number) {
+  constructor(amount: number, currency: string) {
     super(amount);
     this.currency = "CHF";
   }
 
   times(mult: number): Money {
-    return new Franc(this.amount * mult);
+    return Money.franc(this.amount * mult);
   }
 }
 export default Money;
