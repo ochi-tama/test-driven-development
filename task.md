@@ -6,7 +6,7 @@
 - [x] Dollar の副作用をどうする
 - [ ] Money の丸め処理をどうする
 - [x] equals
-- [x] hashCode
+- [ ] hashCode
 - [ ] null との等価性比較
 - [ ] 他のオブジェクトとの等価性比較
 - [x] 5 CHF \* 2 = 10 CHF
@@ -14,4 +14,5 @@
 - [x] equals の一般化
 - [ ] times の一般化
 - [x] Dollar と Franc を比較する
-- [ ] 通貨の概念
+- [x] 通貨の概念
+- [ ] testFrancMultiplication を削除する？
