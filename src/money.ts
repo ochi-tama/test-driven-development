@@ -2,6 +2,7 @@
 /* eslint-disable max-classes-per-file */
 export class Money {
   protected amount: number;
+  public currency: string = "";
 
   constructor(amount: number) {
     this.amount = amount;
@@ -17,19 +18,9 @@ export class Money {
 }
 
 export class Dollar extends Money {
-  private _currency: string = "USD";
-
   constructor(amount: number) {
     super(amount);
-    this._currency = "USD";
-  }
-
-  get currency(): string {
-    return this._currency;
-  }
-
-  set currency(value: string) {
-    this._currency = value;
+    this.currency = "USD";
   }
 
   times(mult: number): Money {
@@ -38,19 +29,9 @@ export class Dollar extends Money {
 }
 
 export class Franc extends Money {
-  private _currency: string = "USD";
-
   constructor(amount: number) {
     super(amount);
-    this._currency = "CHF";
-  }
-
-  get currency(): string {
-    return this._currency;
-  }
-
-  set currency(value: string) {
-    this._currency = value;
+    this.currency = "CHF";
   }
 
   times(mult: number): Money {
