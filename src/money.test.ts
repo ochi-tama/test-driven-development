@@ -30,3 +30,8 @@ test("5CHF * 2 equals to 10 CHF", () => {
 test("5CHF not equals to 5 dollar", () => {
   expect(Money.dollar(10)).not.toStrictEqual(Money.franc(10));
 });
+
+test("currency equals", () => {
+  expect("USD").toBe(Money.dollar(1).currency);
+  expect("CHF").toBe(Money.franc(1).currency);
+});

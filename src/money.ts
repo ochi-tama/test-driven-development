@@ -17,12 +17,42 @@ export class Money {
 }
 
 export class Dollar extends Money {
+  private _currency: string = "USD";
+
+  constructor(amount: number) {
+    super(amount);
+    this._currency = "USD";
+  }
+
+  get currency(): string {
+    return this._currency;
+  }
+
+  set currency(value: string) {
+    this._currency = value;
+  }
+
   times(mult: number): Money {
     return new Dollar(this.amount * mult);
   }
 }
 
 export class Franc extends Money {
+  private _currency: string = "USD";
+
+  constructor(amount: number) {
+    super(amount);
+    this._currency = "CHF";
+  }
+
+  get currency(): string {
+    return this._currency;
+  }
+
+  set currency(value: string) {
+    this._currency = value;
+  }
+
   times(mult: number): Money {
     return new Franc(this.amount * mult);
   }

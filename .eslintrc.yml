@@ -16,3 +16,5 @@ plugins:
 settings:
   import/resolver:
     "node": { "extensions": [".js", ".jsx", ".json", ".ts", ".tsx"] }
+rules:
+  "no-underscore-dangle": false
