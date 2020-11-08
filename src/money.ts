@@ -4,8 +4,9 @@ export class Money {
   protected amount: number;
   public currency: string = "";
 
-  constructor(amount: number) {
+  constructor(amount: number, currency: string) {
     this.amount = amount;
+    this.currency = currency;
   }
 
   static dollar(amount: number): Dollar {
@@ -19,8 +20,7 @@ export class Money {
 
 export class Dollar extends Money {
   constructor(amount: number, currency: string) {
-    super(amount);
-    this.currency = currency;
+    super(amount, currency);
   }
 
   times(mult: number): Money {
@@ -30,8 +30,7 @@ export class Dollar extends Money {
 
 export class Franc extends Money {
   constructor(amount: number, currency: string) {
-    super(amount);
-    this.currency = currency;
+    super(amount, currency);
   }
 
   times(mult: number): Money {
