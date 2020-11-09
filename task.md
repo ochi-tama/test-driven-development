@@ -1,18 +1,19 @@
 # TODO リスト
 
-- [ ] $5 + $10 CHF = \$10
 - [x] $5 * 2 = $10
 - [x] amount を private にする
 - [x] Dollar の副作用をどうする
-- [ ] Money の丸め処理をどうする
 - [x] equals
+- [x] 5 CHF \* 2 = 10 CHF
+- [x] equals の一般化
+- [x] Dollar と Franc を比較する
+- [x] 通貨の概念
+- [x] testFrancMultiplication を削除する？
+- [ ] times の一般化
+- [ ] Dollar と Franc の重複
 - [ ] hashCode
 - [ ] null との等価性比較
 - [ ] 他のオブジェクトとの等価性比較
-- [x] 5 CHF \* 2 = 10 CHF
-- [ ] Dollar と Franc の重複
-- [x] equals の一般化
-- [ ] times の一般化
-- [x] Dollar と Franc を比較する
-- [x] 通貨の概念
-- [ ] testFrancMultiplication を削除する？
+- [ ] Money の丸め処理をどうする
+- [ ] $5 + $10 CHF = \$10 (レートが 2:1 の場合)
+- [ ] $5 + $5 = \$10
