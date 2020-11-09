@@ -24,6 +24,10 @@ export class Money {
   times(mult: number): Money {
     return new Money(this.amount * mult, this.currency);
   }
+
+  plus(addedMoney: Money): Money {
+    return new Money(this.amount + addedMoney.amount, this.currency);
+  }
 }
 
 export default Money;

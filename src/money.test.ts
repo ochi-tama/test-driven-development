@@ -31,3 +31,8 @@ test("currency equals", () => {
   expect("USD").toBe(Money.dollar(1).currency);
   expect("CHF").toBe(Money.franc(1).currency);
 });
+
+test("$5 + $5 = $10", () => {
+  const sum = Money.dollar(5).plus(Money.dollar(5));
+  expect(sum).toEqual(Money.dollar(10));
+});
