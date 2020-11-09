@@ -1,6 +1,8 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable max-classes-per-file */
-export class Money {
+
+import Expression from "./expression";
+export class Money implements Expression {
   protected amount: number;
   public currency: string = "";
 
@@ -23,6 +25,10 @@ export class Money {
 
   times(mult: number): Money {
     return new Money(this.amount * mult, this.currency);
+  }
+
+  plus(addedMoney: Money): Expression {
+    return new Money(this.amount + addedMoney.amount, this.currency);
   }
 }
 

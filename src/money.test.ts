@@ -1,5 +1,6 @@
 /* eslint-disable no-magic-numbers */
 import Money from "./money";
+import Bank from "./bank";
 
 test("5 * 2 equals to 10", () => {
   // 意図を伝える
@@ -30,4 +31,13 @@ test("5CHF not equals to 5 dollar", () => {
 test("currency equals", () => {
   expect("USD").toBe(Money.dollar(1).currency);
   expect("CHF").toBe(Money.franc(1).currency);
+});
+
+test("$5 + $5 = $10", () => {
+  const five = Money.dollar(5);
+  const sum = five.plus(five);
+  const bank = new Bank();
+  // imposter パターン。銀行(bank)に通貨計算をさせる。
+  const reduced = bank.reduce(sum, "USD");
+  expect(reduced).toEqual(Money.dollar(10));
 });
