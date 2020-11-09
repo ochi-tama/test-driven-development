@@ -46,7 +46,12 @@ test("$5 + $5 = $10", () => {
 test("$3 + $4 = $7", () => {
   const sum = new Sum(Money.dollar(3), Money.dollar(4));
   const bank = new Bank();
-  // imposter パターン。銀行(bank)に通貨計算をさせる。
   const reduced = bank.reduce(sum, "USD");
   expect(reduced).toEqual(Money.dollar(7));
+});
+
+test("reduce method returns a Money class", () => {
+  const bank = new Bank();
+  const result = bank.reduce(Money.dollar(1), "USD");
+  expect(result).toEqual(Money.dollar(1));
 });
