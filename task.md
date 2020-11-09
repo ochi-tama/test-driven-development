@@ -9,8 +9,8 @@
 - [x] Dollar と Franc を比較する
 - [x] 通貨の概念
 - [x] testFrancMultiplication を削除する？
-- [ ] times の一般化
-- [ ] Dollar と Franc の重複
+- [x] times の一般化
+- [x] Dollar と Franc の重複
 - [ ] hashCode
 - [ ] null との等価性比較
 - [ ] 他のオブジェクトとの等価性比較
