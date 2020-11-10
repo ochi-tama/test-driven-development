@@ -17,4 +17,7 @@ settings:
   import/resolver:
     "node": { "extensions": [".js", ".jsx", ".json", ".ts", ".tsx"] }
 rules:
-  "no-underscore-dangle": false
+  "no-underscore-dangle": off
+  "no-unused-vars": off
+  "sort-vars": off
+  "@typescript-eslint/no-unused-vars": "error"
