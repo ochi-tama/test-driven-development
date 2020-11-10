@@ -1,6 +1,7 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable max-classes-per-file */
 
+import Bank from "./bank";
 import Expression from "./expression";
 import Sum from "./sum";
 export class Money implements Expression {
@@ -33,8 +34,8 @@ export class Money implements Expression {
     return new Sum(this, addedMoney);
   }
 
-  reduce(to: string): Money {
-    const rate = this.currency === "CHF" && to === "USD" ? 2 : 1;
+  reduce(bank: Bank, to: string): Money {
+    const rate = bank.rate(this.currency, to);
     return new Money(this.amount / rate, to);
   }
 }
