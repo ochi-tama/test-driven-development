@@ -9,11 +9,15 @@
 - [x] Dollar と Franc を比較する
 - [x] 通貨の概念
 - [x] testFrancMultiplication を削除する？
-- [ ] times の一般化
-- [ ] Dollar と Franc の重複
+- [x] times の一般化
+- [x] Dollar と Franc の重複
 - [ ] hashCode
 - [ ] null との等価性比較
 - [ ] 他のオブジェクトとの等価性比較
 - [ ] Money の丸め処理をどうする
 - [ ] $5 + $10 CHF = \$10 (レートが 2:1 の場合)
 - [ ] $5 + $5 = \$10
+- [ ] $5 + $5 が Money を返す
+- [x] Bank.reduce(Money)
+- [ ] Money を変換して換算を行う
+- [ ] Reduce(Bank, String)

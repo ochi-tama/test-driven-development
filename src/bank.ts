@@ -1,8 +1,10 @@
 import Money from "./money";
+import Sum from "./sum";
 import Expression from "./expression";
 
 export default class Bank {
   reduce(source: Expression, to: string): Money {
-    return Money.dollar(10);
+    // クラスの明示的なチェックはポリモフィズムに置き換える
+    return source.reduce(to);
   }
 }

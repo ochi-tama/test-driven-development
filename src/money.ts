@@ -2,8 +2,9 @@
 /* eslint-disable max-classes-per-file */
 
 import Expression from "./expression";
+import Sum from "./sum";
 export class Money implements Expression {
-  protected amount: number;
+  public amount: number;
   public currency: string = "";
 
   constructor(amount: number, currency: string) {
@@ -28,7 +29,11 @@ export class Money implements Expression {
   }
 
   plus(addedMoney: Money): Expression {
-    return new Money(this.amount + addedMoney.amount, this.currency);
+    return new Sum(this, addedMoney);
+  }
+
+  reduce(to: string) {
+    return this;
   }
 }
 
