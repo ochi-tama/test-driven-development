@@ -5,6 +5,7 @@ import Expression from "./expression";
 import Sum from "./sum";
 export class Money implements Expression {
   public amount: number;
+
   public currency: string = "";
 
   constructor(amount: number, currency: string) {
@@ -13,7 +14,7 @@ export class Money implements Expression {
   }
 
   toString(): string {
-    return this.amount + " " + this.currency;
+    return `${this.amount} ${this.currency}`;
   }
 
   static dollar(amount: number): Money {
@@ -32,8 +33,9 @@ export class Money implements Expression {
     return new Sum(this, addedMoney);
   }
 
-  reduce(to: string) {
-    return this;
+  reduce(to: string): Money {
+    const rate = this.currency === "CHF" && to === "USD" ? 2 : 1;
+    return new Money(this.amount / rate, to);
   }
 }
 
