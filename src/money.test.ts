@@ -57,7 +57,12 @@ test("reduce method returns a Money class", () => {
 });
 
 test("2 CHF is exchanged to 1 USD.", () => {
-  const bank = new Bank().addRate("CHF", "USD", 2),
-    result = bank.reduce(Money.franc(2), "USD");
+  const bank = new Bank();
+  bank.addRate("CHF", "USD", 2);
+  const result = bank.reduce(Money.franc(2), "USD");
   expect(result).toEqual(Money.dollar(1));
+});
+
+test("USD to USD rate is equal to 1.", () => {
+  expect(1).toEqual(new Bank().rate("USD", "USD"));
 });
