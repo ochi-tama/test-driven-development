@@ -26,11 +26,11 @@ export class Money implements Expression {
     return new Money(amount, "CHF");
   }
 
-  times(mult: number): Money {
+  times(mult: number): Expression {
     return new Money(this.amount * mult, this.currency);
   }
 
-  plus(addedMoney: Money): Expression {
+  plus(addedMoney: Expression): Expression {
     return new Sum(this, addedMoney);
   }
 

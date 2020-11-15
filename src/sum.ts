@@ -2,11 +2,11 @@ import Bank from "./bank";
 import Expression from "./expression";
 import Money from "./money";
 export default class Sum implements Expression {
-  augend: Money;
+  augend: Expression;
 
-  addend: Money;
+  addend: Expression;
 
-  constructor(augend: Money, addend: Money) {
+  constructor(augend: Expression, addend: Expression) {
     this.augend = augend;
     this.addend = addend;
   }
