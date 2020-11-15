@@ -11,6 +11,10 @@ export default class Sum implements Expression {
     this.addend = addend;
   }
 
+  plus(addened: Expression): Expression {
+    return addened;
+  }
+
   reduce(bank: Bank, to: string): Money {
     const amount =
       this.augend.reduce(bank, to).amount + this.addend.reduce(bank, to).amount;

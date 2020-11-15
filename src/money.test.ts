@@ -1,5 +1,6 @@
 /* eslint-disable no-magic-numbers */
 import Bank from "./bank";
+import Expression from "./expression";
 import Money from "./money";
 import Sum from "./sum";
 
@@ -68,8 +69,8 @@ test("USD to USD rate is equal to 1.", () => {
 });
 
 test("5 USD + 10 CHF = 10 USD (2:1 rate).", () => {
-  const fiveBucks = Money.dollar(5);
-  const tenFrancs = Money.franc(10);
+  const fiveBucks = Money.dollar(5) as Expression;
+  const tenFrancs = Money.franc(10) as Expression;
   const bank = new Bank();
   bank.addRate("CHF", "USD", 2);
   const result = bank.reduce(fiveBucks.plus(tenFrancs), "USD");
