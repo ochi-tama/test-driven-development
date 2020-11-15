@@ -1,6 +1,6 @@
 /* eslint-disable no-magic-numbers */
-import Money from "./money";
 import Bank from "./bank";
+import Money from "./money";
 import Sum from "./sum";
 
 test("5 * 2 equals to 10", () => {
@@ -14,7 +14,7 @@ test("5 * 3 equals to 15", () => {
   expect(money.times(3)).toEqual(Money.dollar(15));
 });
 
-test("test to String", () => {
+test("to String", () => {
   const money = Money.dollar(5);
   expect(money.toString()).toBe("5 USD");
 });
@@ -35,23 +35,34 @@ test("currency equals", () => {
 });
 
 test("$5 + $5 = $10", () => {
-  const five = Money.dollar(5);
-  const sum = five.plus(five) as Sum;
-  const bank = new Bank();
-  // imposter パターン。銀行(bank)に通貨計算をさせる。
-  const reduced = bank.reduce(sum, "USD");
+  const bank = new Bank(),
+    five = Money.dollar(5),
+    // Imposter パターン。銀行(bank)に通貨計算をさせる。
+    sum = five.plus(five),
+    reduced = bank.reduce(sum, "USD");
   expect(reduced).toEqual(Money.dollar(10));
 });
 
 test("$3 + $4 = $7", () => {
-  const sum = new Sum(Money.dollar(3), Money.dollar(4));
-  const bank = new Bank();
-  const reduced = bank.reduce(sum, "USD");
+  const sum = new Sum(Money.dollar(3), Money.dollar(4)),
+    bank = new Bank(),
+    reduced = bank.reduce(sum, "USD");
   expect(reduced).toEqual(Money.dollar(7));
 });
 
 test("reduce method returns a Money class", () => {
-  const bank = new Bank();
-  const result = bank.reduce(Money.dollar(1), "USD");
+  const bank = new Bank(),
+    result = bank.reduce(Money.dollar(1), "USD");
   expect(result).toEqual(Money.dollar(1));
+});
+
+test("2 CHF is exchanged to 1 USD.", () => {
+  const bank = new Bank();
+  bank.addRate("CHF", "USD", 2);
+  const result = bank.reduce(Money.franc(2), "USD");
+  expect(result).toEqual(Money.dollar(1));
+});
+
+test("USD to USD rate is equal to 1.", () => {
+  expect(1).toEqual(new Bank().rate("USD", "USD"));
 });
