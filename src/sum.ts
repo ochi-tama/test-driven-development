@@ -12,7 +12,14 @@ export default class Sum implements Expression {
   }
 
   plus(addened: Expression): Expression {
-    return addened;
+    return new Sum(this, addened);
+  }
+
+  times(multiplier: number): Expression {
+    return new Sum(
+      this.augend.times(multiplier),
+      this.addend.times(multiplier)
+    );
   }
 
   reduce(bank: Bank, to: string): Money {

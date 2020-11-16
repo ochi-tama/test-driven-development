@@ -73,6 +73,26 @@ test("5 USD + 10 CHF = 10 USD (2:1 rate).", () => {
   const tenFrancs = Money.franc(10) as Expression;
   const bank = new Bank();
   bank.addRate("CHF", "USD", 2);
-  const result = bank.reduce(fiveBucks.plus(tenFrancs), "USD");
+  const result = bank.reduce(fiveBucks.plus(tenFrancs), "USD") as Expression;
   expect(result).toEqual(Money.dollar(10));
+});
+
+test("5 USD + 10 CHF + 5USD = 15 USD (2:1 rate).", () => {
+  const fiveBucks = Money.dollar(5) as Expression;
+  const tenFrancs = Money.franc(10) as Expression;
+  const bank = new Bank();
+  bank.addRate("CHF", "USD", 2);
+  const sum = new Sum(fiveBucks, tenFrancs).plus(fiveBucks);
+  const result = bank.reduce(sum, "USD") as Expression;
+  expect(result).toEqual(Money.dollar(15));
+});
+
+test("(5 USD + 10 CHF) * 2 = 20 USD (2:1 rate).", () => {
+  const fiveBucks = Money.dollar(5) as Expression;
+  const tenFrancs = Money.franc(10) as Expression;
+  const bank = new Bank();
+  bank.addRate("CHF", "USD", 2);
+  const sum = new Sum(fiveBucks, tenFrancs).times(2);
+  const result = bank.reduce(sum, "USD") as Expression;
+  expect(result).toEqual(Money.dollar(20));
 });
